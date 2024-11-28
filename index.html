@@ -260,9 +260,37 @@
 
 
       <!-- Camera -->
-      <a-camera position="0 2 10" look-controls wasd-controls>
+      <a-camera id="camera"position="0 2 10" look-controls wasd-controls>
         <a-cursor></a-cursor>
       </a-camera>
     </a-scene>
+
+
+    <div style="position: absolute; top: 20px; left: 20px; z-index: 1000;">
+      <button id="nextPositionButton" style="padding: 10px; font-size: 16px;">Next Position</button>
+    </div>
+  
+    <script>
+      // List of predefined positions
+      const positions = [
+        { x: 17, y: 2, z: -10 },
+        { x: 0, y: 2, z: -10.2 },
+        { x: 0, y: 2, z: 10 }
+      ];
+  
+      let currentPositionIndex = 0;
+  
+      const camera = document.querySelector('#camera');
+      const button = document.querySelector('#nextPositionButton');
+  
+      button.addEventListener('click', () => {
+        // Update the position index
+        currentPositionIndex = (currentPositionIndex + 1) % positions.length;
+  
+        // Set the new position
+        const newPosition = positions[currentPositionIndex];
+        camera.setAttribute('position', newPosition);
+      });
+    </script>
   </body>
 </html>
