@@ -3,6 +3,10 @@
   <head>
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
     <script src="https://cdn.aframe.io/community/aframe-youtube-component/dist/aframe-youtube-component.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Add this line -->
+    <title>Curtis Christmas list</title>
+
 
 
   </head>
@@ -266,8 +270,8 @@
     </a-scene>
 
 
-    <div style="position: absolute; top: 20px; left: 20px; z-index: 1000;">
-      <button id="nextPositionButton" style="padding: 10px; font-size: 16px;">Next Position</button>
+    <div style="position: fixed; top: 20px; left: 20px; z-index: 1000;"> <!-- Change to fixed -->
+      <button id="nextPositionButton" style="padding: 15px; font-size: 18px;">Next Position</button> <!-- Increased padding and font size -->
     </div>
   
     <script>
@@ -292,5 +296,5 @@
         camera.setAttribute('position', newPosition);
       });
     </script>
-  </body>
+</body>
 </html>
