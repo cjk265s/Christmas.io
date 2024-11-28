@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://cdn.aframe.io/community/aframe-youtube-component/dist/aframe-youtube-component.min.js"></script>
+
+
+  </head>
+  <body>
+    <a-scene>
+      <!-- Sky and ground -->
+      <a-sky color="#87CEEB"></a-sky>
+      <a-plane position="0 0 -10" rotation="-90 0 0" width="100" height="100" color="#7BC8A4"></a-plane>
+        
+      <!-- House walls -->
+      <a-box position="0 3 -5" width="10" height="6" depth="0.5" color="#8B4513"></a-box> <!-- Front wall -->
+      <a-box position="0 3 -15" width="10" height="6" depth="0.5" color="#8B4513"></a-box> <!-- Back wall -->
+      <a-box position="-5 3 -10" width="0.5" height="6" depth="10" color="#8B4513"></a-box> <!-- Left wall -->
+      <a-box position="5 3 -10" width="0.5" height="6" depth="10" color="#8B4513"></a-box> <!-- Right wall -->
+
+      <!-- Roof -->
+      <a-box position="0 8 -13" width="12" height="1" depth="10" color="#A52A2A" rotation="-45 0 0"></a-box> <!-- slanted roof -->
+      <a-box position="0 8 -7" width="12" height="1" depth="10" color="#A52A2A" rotation="45 0 0"></a-box> <!-- Slanted roof -->
+      <!-- Door and windows -->
+      <a-box position="0 1 -4.5" width="2" height="3" depth="0.1" color="#D2691E"></a-box> <!-- Door -->
+      <a-box position="-3 3 -4.5" width="1" height="1" depth="0.1" color="#87CEEB"></a-box> <!-- Left window -->
+      <a-box position="3 3 -4.5" width="1" height="1" depth="0.1" color="#87CEEB"></a-box> <!-- Right window -->
+      <!-- Couch Seat -->
+      <a-box position="0 0.5 -14" width="6" height="1" depth="2" color="#4682B4"></a-box> <!-- Seat -->
+      <a-box position="0 1.25 -14.5" width="6" height="2" depth="0.5" color="#4682B4" rotation=" 0 5 0 "></a-box> <!-- Backrest -->
+      <a-box position="-3 0.75 -14" width="0.5" height="2" depth="2" color="#4682B4"></a-box> <!-- Left armrest -->
+      <a-box position="3 0.75 -14" width="0.5" height="2" depth="2" color="#4682B4"></a-box> <!-- Right armrest -->
+
+      <!-- Flagpole -->
+      <a-cylinder position="8 0.5 -2" radius="0.05" height="10" color="#808080" rotation="0 0 0"></a-cylinder>
+      <!-- American Flag -->
+      <a-plane position="9.5 6 -2" width="3" height="2" src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg" rotation="0 0 0"
+          animation="property: rotation; to: 0 5 0; dir: alternate; dur: 1000; loop: true; easing: easeInOutSine"></a-plane>
+      <!-- Snoopy model (adjust the URL to the actual model URL) -->
+      <a-image 
+      src="https://upload.wikimedia.org/wikipedia/en/thumb/5/53/Snoopy_Peanuts.png/220px-Snoopy_Peanuts.png" 
+      position="0 13.5 -9.5" 
+      scale="4 4 1" 
+      rotation="0 180 0">
+      </a-image>
+      <a-image
+      src=" https://upload.wikimedia.org/wikipedia/en/d/db/Woodstock.png"
+      position="-5 13.5 -9.5"
+      scale=" 2 2 0.5"
+      rotation=" 0 180 0"></a-image>
+      <!-- Tree Trunk -->
+      <a-cylinder position="-8 1 -2" radius="0.3" height="2" color="#8B4513"></a-cylinder>
+      <!-- Tree Branches (Cones) -->
+      <a-cone position="-8 7 -2" radius-bottom="2" radius-top="0" height="3" color="#228B22"></a-cone>
+      <a-cone position="-8 5 -2" radius-bottom="3" radius-top="0" height="3" color="#228B22"></a-cone>
+      <a-cone position="-8 3 -2" radius-bottom="4" radius-top="0" height="3" color="#228B22"></a-cone>
+      <!-- Decorations (Ornaments) -->
+      <a-sphere position="-9.5 5.25 -2" radius="0.2" color="red"></a-sphere>
+      <a-sphere position="-6.5 5.25 -2" radius="0.2" color="red"></a-sphere>
+      <a-sphere position="-6 3 -2" radius="0.2" color="yellow"></a-sphere>
+      <!-- Star on top -->
+      <a-sphere position="-8 8.25 -2" radius="0.4" color="yellow"></a-sphere>
+      <!-- Floating Text -->
+      <a-text value="Curtis's Chrismas list" position="0 17 -9.5" color="black" look-at="#camera"
+      scale="8 8 1"
+      align = "center"></a-text>
+      <!-- Snowflakes -->
+      <a-entity id="snow" position="0 10 0">
+        <!-- Add multiple snowflakes -->
+        <a-sphere class="snowflake" position="0 0 0" radius="0.1" color="#ffffff" animation="property: position; to: 0 -10 0; dur: 2000; loop: true; easing: linear;"></a-sphere>
+        <a-sphere class="snowflake" position="2 0 0" radius="0.1" color="#ffffff" animation="property: position; to: 2 -10 0; dur: 3000; loop: true; easing: linear;"></a-sphere>
+        <a-sphere class="snowflake" position="-2 0 0" radius="0.1" color="#ffffff" animation="property: position; to: -2 -10 0; dur: 2500; loop: true; easing: linear;"></a-sphere>
+        <a-sphere class="snowflake" position="-3 0 0" radius="0.1" color="#ffffff" animation="property: position; to: -3 -10 0; dur: 2500; loop: true; easing: linear;"></a-sphere>
+        <a-sphere class="snowflake" position="3 0 0" radius="0.1" color="#ffffff" animation="property: position; to: 3 -10 0; dur: 2500; loop: true; easing: linear;"></a-sphere>
+        <a-sphere class="snowflake" position="0.5 0 1" radius="0.1" color="#ffffff" animation="property: position; to: 0.5 -10 1; dur: 2000; loop: true; easing: linear;"></a-sphere>
+      </a-entity>
+      <a-entity id="snow" position="0 10 0">
+        <a-sphere class="snowflake" position="0 0 0" radius="0.1" color="#ffffff" animation="property: position; to: 0 -10 0; dur: 2000; loop: true; easing: linear;"></a-sphere>
+        <a-sphere class="snowflake" position="2 0 0" radius="0.1" color="#ffffff" animation="property: position; to: 2 -10 0; dur: 3000; loop: true; easing: linear;"></a-sphere>
+        <a-sphere class="snowflake" position="-2 0 0" radius="0.1" color="#ffffff" animation="property: position; to: -2 -10 0; dur: 2500; loop: true; easing: linear;"></a-sphere>
+        <a-sphere class="snowflake" position="-3 0 0" radius="0.1" color="#ffffff" animation="property: position; to: -3 -10 0; dur: 2500; loop: true; easing: linear;"></a-sphere>
+        <a-sphere class="snowflake" position="3 0 0" radius="0.1" color="#ffffff" animation="property: position; to: 3 -10 0; dur: 2500; loop: true; easing: linear;"></a-sphere>
+        <a-sphere class="snowflake" position="0.5 0 1" radius="0.1" color="#ffffff" animation="property: position; to: 0.5 -10 1; dur: 2000; loop: true; easing: linear;"></a-sphere>
+      
+        <a-sphere class="snowflake" position="-1 0 -1" radius="0.15" color="#ffffff" animation="property: position; to: -1 -10 -1; dur: 2200; loop: true; easing: linear;"></a-sphere>
+        <a-sphere class="snowflake" position="1.5 0 -2" radius="0.12" color="#ffffff" animation="property: position; to: 1.5 -10 -2; dur: 2800; loop: true; easing: linear;"></a-sphere>
+        <a-sphere class="snowflake" position="-2.5 0 2" radius="0.18" color="#ffffff" animation="property: position; to: -2.5 -10 2; dur: 2400; loop: true; easing: linear;"></a-sphere>
+        <a-sphere class="snowflake" position="3 0 -1.5" radius="0.1" color="#ffffff" animation="property: position; to: 3 -10 -1.5; dur: 2600; loop: true; easing: linear;"></a-sphere>
+        <a-sphere class="snowflake" position="-1.2 0 0.5" radius="0.13" color="#ffffff" animation="property: position; to: -1.2 -10 0.5; dur: 2100; loop: true; easing: linear;"></a-sphere>
+      </a-entity>
+      <!--picture frames-->
+        <a-box position="-4.5 4 -12" width="2" height="2" depth="0.1" color="black" rotation="0 90 0"></a-box>  
+        <a-box position="4.5 4 -12" width="2" height="2" depth="0.1" color="black" rotation="0 90 0"></a-box>  
+        <a-box position="-2 4 -14.5" width="2" height="2" depth="0.1" color="black"></a-box>
+        <a-box position="2 4 -14.5" width="2" height="2" depth="0.1" color="black"></a-box>
+        <a-box position="-4.5 4 -8" width="2" height="2" depth="0.1" color="black" rotation="0 90 0"></a-box>  
+        <a-box position="4.5 4 -8" width="2" height="2" depth="0.1" color="black" rotation="0 90 0"></a-box>
+        <a-box position="-2 4 -5.25" width="2" height="2" depth="0.1" color="black"></a-box>  
+        <a-box position="2 4 -5.25" width="2" height="2" depth="0.1" color="black"></a-box>   
+      <!--List in the frames-->
+      <!-- number 1-->
+      <a-image 
+      src="https://m.media-amazon.com/images/I/81BamenUlkL.jpg" 
+      position="-4.40 4 -12" 
+      scale="1 1 2" 
+      rotation="0 90 0"
+      text="Measuring cups"
+      textcolor=" white">
+      </a-image>
+      <a-text value="Measuring cups" position="-4.40 3.25 -12" color="white" look-at="#camera"
+      align="center" rotation="0 90 0"></a-text>
+      <!-- number 2-->
+      <a-image 
+      src="https://assets.basspro.com/image/upload/b_rgb:FFFFFF,c_pad,dpr_2.0,f_auto,h_250,q_auto,w_400/c_pad,h_250,w_400/v1/ProductImages/175/master1_100207320_alt4?pgw=1" 
+      position="-4.40 4 -8" 
+      scale="1 1 2" 
+      rotation="0 90 0"
+      text="Orvis Clearwater Large Arbor extra fly spool II"
+      textcolor=" white">
+      </a-image>
+      <a-text value="Orvis Clearwater Large Arbor
+       extra fly spool IIs" position="-4.40 3.25 -8" color="white" look-at="#camera"
+      align="center" rotation="0 90 0"></a-text>
+      <!--number 3-->
+      <a-image 
+      src="https://upload.wikimedia.org/wikipedia/en/9/92/Ticket_to_Ride_Board_Game_Box_EN.jpg" 
+      position="4.40 4 -8" 
+      scale="1 1 2" 
+      rotation="0 270 0"
+      text="Ticket to ride"
+      textcolor="white">
+      </a-image>
+      <a-text value="Ticket to ride" position="4.40 3.25 -8" color="white" look-at="#camera"
+      align="center" rotation="0 270 0"></a-text>
+      <!--number 4-->
+      <a-image 
+      src="https://columbia.scene7.com/is/image/ColumbiaSportswear2/2125261_271_f_om?wid=768&hei=806&v=1730099369" 
+      position="4.40 4 -12" 
+      scale="1 1 2" 
+      rotation="0 90 0"
+      text="Columbia Men's Hunterdon™ II Fleece Hoodie Ancient Fossil"
+      textcolor="white"
+      href="https://www.columbia.com/p/mens-hunterdon-ii-fleece-hoodie-2125261.html?dwvar_2125261_color=478">
+      </a-image>
+      <a-text value="Columbia Men's Hunterdon™ II Fleece
+       Hoodie Ancient Fossil" position="4.40 3.25 -12" color="white" look-at="#camera"
+      align="center" rotation="0 270 0"></a-text>
+      <!--number 5-->
+      <a-image 
+      src="https://ae-pic-a1.aliexpress-media.com/kf/S618923514e66423da89bcab9547efe88g/NOCO-Boost-Plus-GB40-1000A-UltraSafe-Car-Battery-Jump-Starter-12V-Battery-Pack-Battery-Booster-Gray.jpg_640x640Q90.jpg_.webp" 
+      position="-2 4 -14.4" 
+      scale="1 1 2" 
+      text="Car Jump Starter Car Battery Jump Starter Pack"
+      textcolor="white">
+      </a-image>
+      <a-text value="Car Jump Starter Car Battery Jump Starter Pack" position="-2 3.25 -14.4" color="white" look-at="#camera"
+      align="center" rotation="0 0 0"></a-text>
+      <!--number 6-->
+      <a-image 
+      src="https://cdni.llbean.net/is/image/wim/509467_185_41" 
+      position="2 4 -14.4" 
+      scale="1 1 2" 
+      text="Men's Bean's Quick Dry Trail Tee 1/4 Zip Graphite  "
+      textcolor="white">
+      </a-image>
+      <a-text value="Men's Bean's Quick Dry Trail
+       Tee 1/4 Zip Graphite" position="2 3.25 -14.4" color="white" look-at="#camera"
+      align="center" rotation="0 0 0"></a-text>
+      <!--number 7
+      <a-image 
+      src="" 
+      position="" 
+      scale="1 1 2" 
+      text=" "
+      textcolor="white">
+      </a-image>
+      number 8
+      <a-image 
+      src="" 
+      position="" 
+      scale="1 1 2" 
+      text=" "
+      textcolor="white">
+      </a-image>
+      -->
+      <!--fireplace-->
+      <a-entity position="-4.5 0.5 -10">
+        <a-box width="2" height="2" depth="0.5" color="#8B4513" rotation="0 90 0"></a-box> 
+        <a-plane position="0.3 0 0" rotation="0 90 0" width="1.5" height="1.5" src="https://thewildlife.blog/wp-content/uploads/2023/06/daf20fe7-7922-4444-9772-8e6f79174221.jpg"></a-plane> 
+        <a-light type="point" color="#ff8000" intensity="2" position="0 0.5 0" decay="2" distance="5"></a-light>
+      </a-entity>
+      <!--Rug-->
+      <a-plane position="0 0.1 -10.2" rotation="-90 0 0" width="10" height="10" src="https://png.pngtree.com/png-vector/20240519/ourmid/pngtree-detailed-close-up-of-a-solitary-grey-carpet-texture-png-image_12323825.png"></a-plane>
+    
+      <!--lighting-->
+      <a-light type="ambient" color="#ffffff" intensity="0.2"></a-light>     
+      <a-curve curve="curve: catmullRom; points: 0 1.6 4 0 2 -5 0 3 -7"></a-curve>
+      <a-material id="line-material" shader="line" color="#ffff00" linewidth="5" depthTest="false"></a-material>
+      <a-entity line="curve: #curve; material: #line-material"></a-entity>
+          
+      <a-entity position="-1 1.6 -2">
+        <a-light type="point" color="red" intensity="5" decay="2" distance="4"></a-light>
+      </a-entity>
+      <a-entity position="1 1.6 -3">
+        <a-light type="point" color="green" intensity="5" decay="2" distance="4"></a-light>
+      </a-entity>
+      <a-entity position="-0.5 1.6 -4">
+        <a-light type="point" color="red" intensity="5" decay="2" distance="4"></a-light>
+      </a-entity>
+      <a-entity position="0.5 1.6 -5">
+        <a-light type="point" color="green" intensity="5" decay="2" distance="4"></a-light>
+      </a-entity>
+
+
+      <!--snow balls-->
+      <a-sphere position="6 -.75 -2" radius="2" material="src: #snowTexture"></a-sphere>
+      <a-sphere position="4 -.75 -2" radius="1.5" material="src: #snowTexture"></a-sphere>
+      
+      <!--snow man-->
+      <a-sphere position="10 0.5 -7" radius="1" material="src: #snowTexture"></a-sphere>
+      <a-sphere position="10 1.5 -7" radius="0.8" material="src: #snowTexture"></a-sphere>
+      <a-sphere position="10 2.5 -7" radius="0.6" material="src: #snowTexture"></a-sphere>
+      <a-cylinder position="10 3 -7" radius="0.4" height=".25" color="black"></a-cylinder>
+      <a-cylinder position="10 3.3 -7" radius="0.2" height=".25" color="black"></a-cylinder>
+
+      <!-- Hockey Rink -->
+      <a-image 
+      src="https://t4.ftcdn.net/jpg/05/19/15/17/360_F_519151794_inO2QZz7WidXAGw2fafFJ9Hw0Zhnjj2X.jpg" 
+      position="17 0.1 -10" 
+      scale="10 10 10" 
+      rotation="-90 0 0"
+      text="blues"
+      textcolor=" white">
+      </a-image>
+
+     
+      <a-box position="22 0 -10" width="0.2" height="1.5" depth="10" color="#808080"></a-box>
+      <a-box position="12 0 -10" width="0.2" height="1.5" depth="10" color="#808080"></a-box>
+      <a-circle position="17 0.2 -10" radius="1.5" color="blue" rotation="-90 0 0"></a-circle>
+      <a-circle position="17 0.05 -15" radius="1" color="blue" rotation="-90 0 0"></a-circle>
+      <a-circle position="17 0.05 -5" radius="1" color="blue" rotation="-90 0 0"></a-circle>
+
+      <a-cylinder position="16 0 -5" radius="0.05" height="3" color="red"></a-cylinder>
+      <a-cylinder position="18 0 -5" radius="0.05" height="3" color="red"></a-cylinder>
+      <a-cylinder position="17 1.5 -5" radius="0.05" height="2" color="red" rotation="90 90 0"></a-cylinder>
+
+      <a-cylinder position="16 0 -15" radius="0.05" height="3" color="red"></a-cylinder>
+      <a-cylinder position="18 0 -15" radius="0.05" height="3" color="red"></a-cylinder>
+      <a-cylinder position="17 1.5 -15" radius="0.05" height="2" color="red" rotation="90 90 0"></a-cylinder>
+
+      <a-image 
+      src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/St._Louis_Blues_logo.svg/1200px-St._Louis_Blues_logo.svg.png" 
+      position="17 0.3 -10" 
+      scale="2 2 4" 
+      rotation="270 90 180"
+      text="blues"
+      textcolor=" white">
+      </a-image>
+
+
+      <!-- Camera -->
+      <a-camera position="0 2 10"></a-camera>
+    </a-scene>
+  </body>
+</html>
