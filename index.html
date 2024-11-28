@@ -256,39 +256,37 @@
       text="blues"
       textcolor=" white">
       </a-image>
-      <a-entity camera look-controls device-orientation-controls></a-entity>
-          <a-entity id="camera" camera look-controls></a-entity>
 
-    <a-entity id="slider-container" position="0 2 -5">
-      <a-plane width="2" height="0.2" color="#ccc"></a-plane>
-      <a-box id="slider" width="1" height="0.2" color="#f00" position="-0.5 0 0"></a-box>
+
+
+      
+       <a-entity camera look-controls device-orientation-controls>
+    <a-entity id="touch-controls">
+      <a-plane position="-1 0 -3" width="1" height="1" material="color: blue; opacity: 0.5" event-set__click="_event: click; scale: 1.2"></a-plane>
+      <a-plane position="1 0 -3" width="1" height="1" material="color: red; opacity: 0.5" event-set__click="_event: click; scale: 1.2"></a-plane>
+      <a-plane position="0 0 -4" width="1" height="1" material="color: green; opacity: 0.5" event-set__click="_event: click; scale: 1.2"></a-plane>
     </a-entity>
+  </a-entity>
 
-    <script>
-      const camera = document.querySelector('#camera');
-      const slider = document.querySelector('#slider');
+  <script>
+    AFRAME.registerComponent('touch-controls', {
+      init: function () {
+        const camera = this.el;
+        const speed = 0.1;
 
-      slider.addEventListener('mousedown', (event) => {
-        const initialX = event.clientX;
-        const initialPosition = camera.object3D.position.z;
-
-        const onMouseMove = (event) => {
-          const deltaX = event.clientX - initialX;
-          const newPosition = initialPosition - deltaX * 0.01;
-          camera.object3D.position.z = newPosition;
-        };
-
-        const onMouseUp = () => {
-          window.removeEventListener('mousemove', onMouseMove);
-          window.removeEventListener('mouseup', onMouseUp);
-        };
-
-        window.addEventListener('mousemove',   
- onMouseMove);
-        window.addEventListener('mouseup', onMouseUp);   
-
-      });
-    </script>
+        this.el.addEventListener('click', (event) => {
+          const target = event.target;
+          if (target.getAttribute('color') === 'blue') {
+            camera.object3D.position.x -= speed;
+          } else if (target.getAttribute('color') === 'red') {
+            camera.object3D.position.x += speed;
+          } else if (target.getAttribute('color') === 'green') {
+            camera.object3D.position.z -= speed;
+          }
+        });
+      }
+    });
+  </script>
 
 
       <!-- Camera -->
