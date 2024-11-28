@@ -259,38 +259,8 @@
 
 
 
-      
-       <a-entity camera look-controls device-orientation-controls>
-    <a-entity id="touch-controls">
-      <a-plane position="-1 0 -3" width="1" height="1" material="color: blue; opacity: 0.5" event-set__click="_event: click; scale: 1.2"></a-plane>
-      <a-plane position="1 0 -3" width="1" height="1" material="color: red; opacity: 0.5" event-set__click="_event: click; scale: 1.2"></a-plane>
-      <a-plane position="0 0 -4" width="1" height="1" material="color: green; opacity: 0.5" event-set__click="_event: click; scale: 1.2"></a-plane>
-    </a-entity>
-  </a-entity>
-
-  <script>
-    AFRAME.registerComponent('touch-controls', {
-      init: function () {
-        const camera = this.el;
-        const speed = 0.1;
-
-        this.el.addEventListener('click', (event) => {
-          const target = event.target;
-          if (target.getAttribute('color') === 'blue') {
-            camera.object3D.position.x -= speed;
-          } else if (target.getAttribute('color') === 'red') {
-            camera.object3D.position.x += speed;
-          } else if (target.getAttribute('color') === 'green') {
-            camera.object3D.position.z -= speed;
-          }
-        });
-      }
-    });
-  </script>
-
-
       <!-- Camera -->
-      <a-camera position="0 2 10"></a-camera>
+      <a-camera position="0 2 10" look controls></a-camera>
     </a-scene>
   </body>
 </html>
