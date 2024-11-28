@@ -257,6 +257,38 @@
       textcolor=" white">
       </a-image>
       <a-entity camera look-controls device-orientation-controls></a-entity>
+          <a-entity id="camera" camera look-controls></a-entity>
+
+    <a-entity id="slider-container" position="0 2 -5">
+      <a-plane width="2" height="0.2" color="#ccc"></a-plane>
+      <a-box id="slider" width="1" height="0.2" color="#f00" position="-0.5 0 0"></a-box>
+    </a-entity>
+
+    <script>
+      const camera = document.querySelector('#camera');
+      const slider = document.querySelector('#slider');
+
+      slider.addEventListener('mousedown', (event) => {
+        const initialX = event.clientX;
+        const initialPosition = camera.object3D.position.z;
+
+        const onMouseMove = (event) => {
+          const deltaX = event.clientX - initialX;
+          const newPosition = initialPosition - deltaX * 0.01;
+          camera.object3D.position.z = newPosition;
+        };
+
+        const onMouseUp = () => {
+          window.removeEventListener('mousemove', onMouseMove);
+          window.removeEventListener('mouseup', onMouseUp);
+        };
+
+        window.addEventListener('mousemove',   
+ onMouseMove);
+        window.addEventListener('mouseup', onMouseUp);   
+
+      });
+    </script>
 
 
       <!-- Camera -->
